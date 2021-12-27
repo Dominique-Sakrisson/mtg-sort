@@ -1,0 +1,59 @@
+.cardItem {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+}
+.cardItem img {
+    width: 2rem;
+    height: 3rem;
+}
+.featureCard img {
+    width: 2rem;
+    height: 3rem;
+    animation: grow 1s forwards;
+   
+}
+.cardItem:hover {
+
+    
+}
+.cardImgElement{
+
+}
+
+.cardImgElement img{
+   transition:  all 2s;
+}
+.animate img{
+    animation: grow .5s forwards;
+}
+
+.plainMana{
+    position: relative;
+    left: 1.5rem;
+    bottom: 1rem;
+    font-size: 1.75rem;
+}
+@keyframes grow{
+    from{
+        width: 2rem;
+        height: 3rem;
+    }
+    to{
+        width: 12rem;
+        height:18rem;
+    }
+}
+@keyframes rotate{
+    from{
+        width: 12rem;
+        height:18rem;
+    }
+    to{
+        /* transform: rotate3d(1, 2.0, 3.0, 10deg); */
+        /* transform: rotateX(10deg); */
+        /* transform: rotateY(10deg); */
+        transform: rotateZ(360deg);
+        
+    }
+}
