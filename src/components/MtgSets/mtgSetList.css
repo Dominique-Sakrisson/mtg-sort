@@ -1,0 +1,17 @@
+.setDiv{
+    margin: auto;
+    width: 80%;
+    max-height: 20rem;
+}
+.setList{
+    margin: 2rem auto;
+    width: 80%;
+    max-height: 20rem;
+    overflow-x: scroll;
+}
+.setList li {
+    border: 1px solid grey;
+    list-style: none;
+    width: 100%;
+    color: red;
+}

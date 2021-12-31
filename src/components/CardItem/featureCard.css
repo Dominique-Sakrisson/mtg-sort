@@ -6,15 +6,26 @@
 .cardItem img {
     width: 2rem;
     height: 3rem;
+    
+}
+li{
+    list-style: none;
 }
 .featureCard img {
-    width: 2rem;
-    height: 3rem;
+    width: 12rem;
+    height:18rem;
     animation: grow 1s forwards;
-   
+    margin: 2rem;
 }
-.cardItem:hover {
+.featureCard img:hover {
+    width: 12rem;
+    height:18rem;
+    box-shadow: 5px 10px 20px red;
+}
 
+
+.cardItem:hover {
+   
     
 }
 .cardImgElement{

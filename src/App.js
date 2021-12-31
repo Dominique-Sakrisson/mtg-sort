@@ -3,16 +3,23 @@ import mtg from './mtg.png';
 import './App.css';
 // import {GraphQLClient, ClientContext} from 'graphql-hooks'
 import MtgFilter from './components/MtgFilter/MtgFilter';
+import MtgCards from './components/MtgCards/MtgCards';
 import FeatureBanner from './components/FeatureBanner/FeatureBanner';
+import MtgSetsList from './components/MtgSets/MtgSetsList';
 // const mtgClient = new GraphQLClient({
 //   url: 'https://api.magicthegathering.io/v1/cards'
 // })
 
 function App() {
   const [featuredCard, setFeaturedCard] = useState();
-  
+  const [filter, setFilter] = useState({});
+
   function updateFeaturedBanner(card){
     setFeaturedCard(card)
+  }
+
+  function updateSearchFilter(filterObj){ 
+    setFilter(filterObj)
   }
   return (<>
     {/* // <ClientContext.Provider value={mtgClient}>  */}
@@ -30,12 +37,13 @@ function App() {
           >
           MTG API
         </a>
-        
       </header>
-    </div>
+    {/* <MtgSetsList /> */}
     <FeatureBanner card={featuredCard} />
-    <MtgFilter updateFeaturedBanner={updateFeaturedBanner}/>
+    <MtgFilter  updateSearchFilter={updateSearchFilter} />
+    <MtgCards updateFeaturedBanner={updateFeaturedBanner} searchFilter={filter}/>
     {/* // </ClientContext.Provider> */}
+    </div>
             </>
   );
 }

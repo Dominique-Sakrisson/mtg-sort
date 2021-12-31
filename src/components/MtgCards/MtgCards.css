@@ -1,0 +1,9 @@
+.cardList{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    max-height: 30rem;
+   overflow-y: scroll;
+}
+

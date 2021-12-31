@@ -22,7 +22,14 @@ if(options){
 async function getSets() {
 const mtgSetsResponse = await fetch('https://api.magicthegathering.io/v1/sets');
 const mtgSetsJson = await mtgSetsResponse.json();
-return mtgSetsJson;
+
+return mtgSetsJson.sets;
+}
+
+async function getSetByCode(setCode){
+    const mtgSetResponse = await fetch(`https://api.magicthegathering.io/v1/sets/${setCode}`)
+    const mtgSetJson = await mtgSetResponse.json();
+    return mtgSetJson;
 }
 
 module.exports = {

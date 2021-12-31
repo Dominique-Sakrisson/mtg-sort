@@ -59,22 +59,27 @@ const CardItem = ({card, updateFeaturedBanner}) => {
                 w: 0,
                 plain: 0
             }
-            for(let c of manaCostStr){
-                if(c <= 20){
-                    cost.plain = c;
+            try {
+                for(let c of manaCostStr){
+                    if(c <= 20){
+                        cost.plain = c;
+                    }
+                    if(c === 'R'){
+                        cost.r++;
+                    } else if(c === 'B'){
+                        console.log(Number(c), 'when c is B');
+                        cost.b++;
+                    } else if(c === 'U'){
+                        cost.u++;                    
+                    } else if(c === 'G'){
+                        cost.g++;
+                    } else if(c === 'W'){
+                        cost.w++;
+                    } 
                 }
-                if(c === 'R'){
-                    cost.r++;
-                } else if(c === 'B'){
-                    console.log(Number(c), 'when c is B');
-                    cost.b++;
-                } else if(c === 'U'){
-                    cost.u++;                    
-                } else if(c === 'G'){
-                    cost.g++;
-                } else if(c === 'W'){
-                    cost.w++;
-                } 
+                
+            } catch (error) {
+                
             }
             const returnThis = returnCostImg(cost);
             return returnThis;

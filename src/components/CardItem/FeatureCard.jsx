@@ -83,11 +83,22 @@ const FeatureCard = ({card, updateFeaturedBanner}) => {
     setTimeout(() => {
       document.querySelector('cardImgElement').className = 'animate'
     },200)
+
+    function cardBorder(e){
+        let cardStyle = e.target.style.boxShadow;
+        console.log(cardStyle);
+        if(cardStyle === 'black 5px 10px 20px'){
+            e.target.style.boxShadow = ''    
+        } else{
+            e.target.style.boxShadow = '5px 10px 20px black'    
+        }
+        
+    }
 //one i can listen for the image url being differnt on the new image
 //toggle the classname off and back on
 //that should trigger the animation
     return (
-        <li className='featureCard'>
+        <li onClick={cardBorder} onMouseOut={cardBorder} className='featureCard'>
             <p>{card.name}</p> 
             <p className='cardImgElement'>
             <img src={card.imageUrl} alt={`card: '${card.name}'`} />
