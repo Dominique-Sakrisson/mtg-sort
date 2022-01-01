@@ -1,24 +1,26 @@
 async function getCards(options){
-if(options){
-   
-    const activeQuery = Array.from(Object.keys(options))
-    console.log(activeQuery[0]);
-    console.log(options[activeQuery[0]]);
-    try {
-        const res = await fetch(`https://api.magicthegathering.io/v1/cards?contains=imageUrl&${activeQuery[0]}=${options[activeQuery[0]]}`);
-        const json = res.json();
-        return json;
-    } catch (error) {
-        console.log(error);
+    if(options){
+        const activeQuery = Array.from(Object.keys(options))
+        console.log(activeQuery);
+        const apiUrl = 'https://api.magicthegathering.io/v1/cards?contains=imageUrl'
+        try {
+            const res = await fetch(`${apiUrl}&${activeQuery[0]}=${options[activeQuery[0]]}&${activeQuery[1]}=${options[activeQuery[1]]}`);
+            const json = res.json();
+            return json;
+        } catch (error) {
+            console.log(error);
+        }
+    
     }
    
-   
-}
     const res = await fetch('https://api.magicthegathering.io/v1/cards?contains=imageUrl');
     const json = await res.json();
     return json;
 }
 
+function buildStringParams(list){
+
+}
 async function getSets() {
 const mtgSetsResponse = await fetch('https://api.magicthegathering.io/v1/sets');
 const mtgSetsJson = await mtgSetsResponse.json();

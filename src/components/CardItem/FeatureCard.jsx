@@ -103,7 +103,7 @@ const FeatureCard = ({card, updateFeaturedBanner}) => {
             <p className='cardImgElement'>
             <img src={card.imageUrl} alt={`card: '${card.name}'`} />
             </p>
-            {/* <p key={card.name}>{getManaCost(card)}</p> */}
+            <p key={card.name}>{getManaCost(card)}</p>
         </li>
     )
 }

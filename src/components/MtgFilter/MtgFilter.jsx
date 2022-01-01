@@ -1,32 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import  {getCards}  from '../../utils/mtgApi'
-import CardItem from '../CardItem/CardItem'
 import './mtgFilter.css'
 
-const MtgFilter = ({updateSearchFilter, setCards, handleGetCards}) => {
-  
-    const [searchFilter, setSearchFilter] = useState({power: ''})
+const MtgFilter = ({updateSearchFilter,  handleGetCards}) => {
+    const [searchFilter, setSearchFilter] = useState({})
     const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false)
+ 
     const [active, setActive] = useState({
         power: false, toughness: false, manaCost: false, colors: false, type: false, subtypes: false, rarity: false, setName: false}
     );
-
-    // async function handleGetCards() {
-    //     setLoading(true)
-    //     const {cards} = await getCards(searchFilter)
-    //     setData(cards)
-    //     setLoading(false)
-    // }
-    
-    useEffect(() => {
-        if(data){
-            setCards(data)
-        }
-        return () => {
-         
-        }
-    }, [data])
 
     function handlePowerChange(e){
         setSearchFilter(prevFilter => {
@@ -36,9 +17,9 @@ const MtgFilter = ({updateSearchFilter, setCards, handleGetCards}) => {
         updateSearchFilter(searchFilter)
     }
 
-    function handleManaCostChange(e){
+    function handleToughnessChange(e){
         setSearchFilter(prevFilter => {
-            prevFilter.power = e.target.value;
+            prevFilter.toughness = e.target.value;
             return prevFilter
         })
         updateSearchFilter(searchFilter)
@@ -47,49 +28,34 @@ const MtgFilter = ({updateSearchFilter, setCards, handleGetCards}) => {
     useEffect(() => {
         if(active.power){
             const input = document.querySelectorAll('.power')
-            console.log(input);
             input[1].removeAttribute('disabled')
         }
         if(!active.power){
             const input = document.querySelectorAll('.power')
-            console.log(input);
             input[1].setAttribute('disabled', 'true')
         }
         if(active.toughness){
             const input = document.querySelectorAll('.toughness')
-            console.log(input, 'toughness is true');
             input[1].removeAttribute('disabled')
         }
         if(!active.toughness){
             const input = document.querySelectorAll('.toughness')
-            console.log(input);
             input[1].setAttribute('disabled', 'true')
         }
-
-
-        // if(active.toughness){
-        //     const input = document.getElementById('power')
-        //     input.removeAttribute('disabled')
-        // }
         return () => {
-            console.log();
         }
     }, [active])
 
-function handleSetSearchFilter(){
-  updateSearchFilter(searchFilter)
-}
+    function handleSetSearchFilter(){
+        updateSearchFilter(searchFilter)
+    }
     function handleFilterCase(e){
         const el = e.target.attributes.id.value;
-        console.log(active[el]);
-        console.log(el);
         if(active[el] === false) {
-            console.log('herrooo');
             setActive((prevActive) => {return {...prevActive, [el]: true}});
             return
         }
         if(active[el] === true) {
-            console.log('herroeeeeeo');
             setActive((prevActive) => {return {...prevActive, [el]: false}});
             return
         }
@@ -104,12 +70,14 @@ function handleSetSearchFilter(){
                     power
                     <input id='power' className='power' disabled onChange={handlePowerChange} type="number" />
                 </label>
+
                 <label htmlFor="Toughness">
                     <input id='toughness' onClick={handleFilterCase} type='checkbox' className='toughness'></input>
                     Toughness
-                    <input id='Toughness' disabled className='toughness' onChange={handleManaCostChange} type="number" />
+                    <input id='toughness' disabled className='toughness' onChange={handleToughnessChange} type="number" />
                 </label>
-                <label htmlFor="manaCost">
+
+                {/* <label htmlFor="manaCost">
                     <input type='checkbox'></input>
                     Mana Cost
                     <input id='manaCost' onChange={handleManaCostChange} type="number" />
@@ -138,7 +106,7 @@ function handleSetSearchFilter(){
                     <input type='checkbox'></input>
                     setName
                     <input id='setName' onChange={handleManaCostChange} type="number" />
-                </label>
+                </label> */}
                
                 
             </div>

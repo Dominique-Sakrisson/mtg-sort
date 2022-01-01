@@ -32,7 +32,7 @@ function App() {
     setLoading(true)
     console.log(loading);
     const {cards} = await getCards(filter)
-    setData(cards)
+    setCards(cards)
     setLoading(false)
 }
   return (<>
@@ -55,8 +55,12 @@ function App() {
       </header>
     {/* <MtgSetsList /> */}
     {/* <FeatureBanner card={featuredCard} /> */}
-    <MtgFilter handleGetCards={handleGetCards} setCards={setCards} updateSearchFilter={updateSearchFilter} />
-    {loading ? 'loading' : <MtgCards cards={data}  />}
+    <MtgFilter 
+      handleGetCards={handleGetCards} 
+      setCards={setCards} 
+      updateSearchFilter={updateSearchFilter} />
+      
+    {loading ? 'loading' : <MtgCards cards={cards}  />}
     
     {/* // </ClientContext.Provider> */}
     </div>
