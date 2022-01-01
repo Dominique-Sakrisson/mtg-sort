@@ -85,18 +85,19 @@ const CardItem = ({card, updateFeaturedBanner}) => {
             return returnThis;
         }
     }
-
+    function cardBorder(e){
+        let cardStyle = e.target.style.boxShadow;
+        console.log(cardStyle);
+        if(cardStyle === 'black 5px 10px 20px'){
+            e.target.style.boxShadow = ''    
+        } else{
+            e.target.style.boxShadow = '5px 10px 20px black'    
+        }
+        
+    }
     return (
-        <li className='cardItem' onMouseOver={(e)=>{
-            console.log(card)
-            console.log(typeof(updateFeaturedBanner));
-            updateFeaturedBanner(card)
-        }}>
-            <p>{card.name}</p> 
-            <p className=''>
-            <img  src={card.imageUrl} alt={`card: '${card.name}'`} />
-            </p>
-            <p key={card.name}>{getManaCost(card)}</p>
+        <li className='cardItem'>
+            <img onClick={cardBorder} onMouseOut={cardBorder} src={card.imageUrl} alt={`card: '${card.name}'`} />
         </li>
     )
 }

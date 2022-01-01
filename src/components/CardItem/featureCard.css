@@ -3,11 +3,7 @@
     width: 25%;
     flex-direction: column;
 }
-.cardItem img {
-    width: 2rem;
-    height: 3rem;
-    
-}
+
 li{
     list-style: none;
 }

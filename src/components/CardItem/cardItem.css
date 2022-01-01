@@ -2,19 +2,19 @@
     display: flex;
     width: 25%;
     flex-direction: column;
+    position: relative;
+    animation: slideIn 5s;
 }
-.cardItem img {
-    width: 2rem;
-    height: 3rem;
+.cardItem  img{
+    width: 13rem;
+    height: 17rem;
 }
 
-.cardItem:hover {
-
+.cardItem img:hover {
+    box-shadow: 5px 10px 20px red;
     
 }
-.cardImgElement{
 
-}
 .cardItem:hover .cardImgElement img::after{
     animation: grow .125s forwards;
 }
@@ -24,6 +24,15 @@
     left: 1.5rem;
     bottom: 1rem;
     font-size: 1.75rem;
+}
+
+@keyframes slideIn{
+    from{
+        left: -50rem;
+    }
+    to{
+        left: 0;
+    }
 }
 @keyframes grow{
     from{

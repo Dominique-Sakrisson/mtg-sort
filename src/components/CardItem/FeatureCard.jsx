@@ -98,7 +98,7 @@ const FeatureCard = ({card, updateFeaturedBanner}) => {
 //toggle the classname off and back on
 //that should trigger the animation
     return (
-        <li onClick={cardBorder} onMouseOut={cardBorder} className='featureCard'>
+        <li  className='featureCard'>
             <p>{card.name}</p> 
             <p className='cardImgElement'>
             <img src={card.imageUrl} alt={`card: '${card.name}'`} />
