@@ -3,11 +3,27 @@
     width: 25%;
     flex-direction: column;
     position: relative;
-    animation: slideIn 5s;
+    animation: slideIn 500ms forwards;
+    opacity: 0;
+    margin-top: 1rem;
 }
-.cardItem  img{
+.cardItem:nth-child(4n - 1){
+   animation-delay: 100ms;
+}
+.cardItem:nth-child(4n - 2){
+   animation-delay:200ms;
+}
+.cardItem:nth-child(4n - 3){
+   animation-delay: 300ms;
+}
+.cardItem:nth-child(4n - 4){
+   animation-delay: 100ms;
+}
+
+.cardItem img{
     width: 13rem;
     height: 17rem;
+    border-radius: 10px;
 }
 
 .cardItem img:hover {
@@ -32,6 +48,7 @@
     }
     to{
         left: 0;
+        opacity: 1;
     }
 }
 @keyframes grow{

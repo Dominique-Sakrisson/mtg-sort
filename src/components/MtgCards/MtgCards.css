@@ -4,6 +4,27 @@
     list-style: none;
     flex-wrap: wrap;
     max-height: 30rem;
-   overflow-y: scroll;
+    overflow-y: scroll;
+    background-color: rgb(40,44,52);
+    margin-bottom: 0;
 }
 
+
+.cardList::-webkit-scrollbar {
+    width: 1rem;  
+    border-radius: 20px;   
+    /* width of the entire scrollbar */
+  }
+  
+  .cardList::-webkit-scrollbar-track {
+    background: rgb(168,101,65);        /* color of the tracking area */
+    border-radius: 20px;   
+  }
+  
+  .cardList::-webkit-scrollbar-thumb {
+    background-color: rgb(40,44,52);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    
+    border: 3px solid rgb(40,44,52);  /* creates padding around scroll thumb */
+  }
+  

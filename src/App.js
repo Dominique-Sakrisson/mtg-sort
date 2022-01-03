@@ -34,6 +34,7 @@ function App() {
     const {cards} = await getCards(filter)
     setCards(cards)
     setLoading(false)
+    window.scrollTo(0,document.body.scrollHeight);
 }
   return (<>
     {/* // <ClientContext.Provider value={mtgClient}>  */}

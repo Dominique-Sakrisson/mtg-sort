@@ -3,6 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .App-logo {
@@ -25,6 +27,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border-radius: 0px 0px 25% 25%;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .App-link {
@@ -41,4 +46,23 @@
   100%{
     opacity: 25%;
   }
+}
+
+body::-webkit-scrollbar {
+  width: 1rem;  
+  border-radius: 20px; 
+  display: none;  
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(102,69,55);        /* color of the tracking area */
+  border-radius: 20px;   
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(102,69,55);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  
+  border: 3px solid blue;  /* creates padding around scroll thumb */
 }
