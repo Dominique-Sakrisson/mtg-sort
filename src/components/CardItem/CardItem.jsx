@@ -67,7 +67,6 @@ const CardItem = ({card, updateFeaturedBanner}) => {
                     if(c === 'R'){
                         cost.r++;
                     } else if(c === 'B'){
-                        console.log(Number(c), 'when c is B');
                         cost.b++;
                     } else if(c === 'U'){
                         cost.u++;                    
@@ -87,7 +86,6 @@ const CardItem = ({card, updateFeaturedBanner}) => {
     }
     function cardBorder(e){
         let cardStyle = e.target.style.boxShadow;
-        console.log(cardStyle);
         if(cardStyle === 'black 5px 10px 20px'){
             e.target.style.boxShadow = ''    
         } else{

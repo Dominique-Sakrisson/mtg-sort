@@ -30,7 +30,7 @@ function App() {
   }
   async function handleGetCards() {
     setLoading(true)
-    console.log(loading);
+    
     const {cards} = await getCards(filter)
     setCards(cards)
     setLoading(false)
