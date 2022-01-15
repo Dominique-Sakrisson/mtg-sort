@@ -1,4 +1,4 @@
-async function getCards(options){
+export async function getCards(options){
     if(options){
         const activeQuery = Array.from(Object.keys(options))
       
@@ -18,24 +18,16 @@ async function getCards(options){
     return json;
 }
 
-function buildStringParams(list){
 
-}
-
-async function getSets() {
+export async function getSets() {
 const mtgSetsResponse = await fetch('https://api.magicthegathering.io/v1/sets');
 const mtgSetsJson = await mtgSetsResponse.json();
 
 return mtgSetsJson.sets;
 }
 
-async function getSetByCode(setCode){
+export async function getSetByCode(setCode){
     const mtgSetResponse = await fetch(`https://api.magicthegathering.io/v1/sets/${setCode}`)
     const mtgSetJson = await mtgSetResponse.json();
     return mtgSetJson;
-}
-
-module.exports = {
-    getCards,
-    getSets,
 }
