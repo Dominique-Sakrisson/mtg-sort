@@ -3,12 +3,11 @@ import './mtgFilter.css'
 
 const MtgFilter = ({updateSearchFilter,  handleGetCards}) => {
     const [searchFilter, setSearchFilter] = useState({})
-    const [data, setData] = useState([])
- 
     const [active, setActive] = useState({
         power: false, toughness: false, manaCost: false, colors: false, type: false, subtypes: false, rarity: false, setName: false}
     );
 
+    //function handlers for change of input value for each search filter
     function handlePowerChange(e){
         setSearchFilter(prevFilter => {
             prevFilter.power = e.target.value;
@@ -16,7 +15,6 @@ const MtgFilter = ({updateSearchFilter,  handleGetCards}) => {
         })
         updateSearchFilter(searchFilter)
     }
-
     function handleToughnessChange(e){
         setSearchFilter(prevFilter => {
             prevFilter.toughness = e.target.value;

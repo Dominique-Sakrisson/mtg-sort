@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './MtgSetItem.css'
 
 const MtgSetItem = ({mtgSet}) => {
-    console.log(mtgSet, ' from the component');
+    
     return(
         <li>
         <div className='setBanner'>

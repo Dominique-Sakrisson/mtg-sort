@@ -8,7 +8,7 @@ const MtgSetsList = () => {
 
     useEffect(async() => {
         const mtg = await getSets();
-        console.log(mtg);
+    
         setMtgSets(mtg);
         setLoading(false);
         return () => {
