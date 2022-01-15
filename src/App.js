@@ -1,15 +1,9 @@
 import React, {useState} from 'react'
 import mtg from './mtg.png';
 import './App.css';
-// import {GraphQLClient, ClientContext} from 'graphql-hooks'
 import MtgFilter from './components/MtgFilter/MtgFilter';
 import MtgCards from './components/MtgCards/MtgCards';
 import { getCards } from './utils/mtgApi';
-import FeatureBanner from './components/FeatureBanner/FeatureBanner';
-import MtgSetsList from './components/MtgSets/MtgSetsList';
-// const mtgClient = new GraphQLClient({
-//   url: 'https://api.magicthegathering.io/v1/cards'
-// })
 
 function App() {
   const [featuredCard, setFeaturedCard] = useState();
@@ -54,16 +48,12 @@ function App() {
         </a>
         
       </header>
-    {/* <MtgSetsList /> */}
-    {/* <FeatureBanner card={featuredCard} /> */}
+
     <MtgFilter 
       handleGetCards={handleGetCards} 
       setCards={setCards} 
       updateSearchFilter={updateSearchFilter} />
-      
-    {loading ? 'loading' : <MtgCards cards={cards}  />}
-    
-    {/* // </ClientContext.Provider> */}
+    {loading ? 'loading' : <MtgCards cards={cards} />}
     </div>
             </>
   );
